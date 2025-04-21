@@ -1,5 +1,5 @@
 from telegram import Update, ReplyKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext
 import random
 
 # Darslar mavzulari va ularga tegishli vazifalar
@@ -49,12 +49,12 @@ def send_random_task(update: Update, context: CallbackContext) -> None:
 def main() -> None:
     """Botni ishga tushirish"""
     # O'zingizning bot tokenizingizni qo'ying
-    updater = Updater("YOUR_BOT_TOKEN_HERE")
+    updater = Updater("8070944529:AAHh6DvFwH7-Yis9BZpcg8HpKSPuxvriA3c")
 
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, send_random_task))
+    dispatcher.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, send_random_task))
 
     updater.start_polling()
     updater.idle()
